@@ -8,7 +8,7 @@ Analyze resumes, match them with job descriptions, identify skill gaps, and get 
 
 ## 🚀 Live Demo
 
-👉 https://your-run-app-url.run.app
+👉 https://career-ai-assistant-342313441373.europe-west1.run.app/
 
 ---
 
@@ -70,10 +70,10 @@ career-ai-assistant/ │ ├── app.py ├── requirements.txt ├── D
 ## ☁️ Deployment (Google Cloud Run)
 
 1. Build & Push
-- gcloud builds submit --tag gcr.io/YOUR_PROJECT_ID/career-ai
+- gcloud builds submit --tag gcr.io/career-ai-assistant-342313441373/career-ai
 2. Deploy
 --gcloud run deploy career-ai-assistant \
---image gcr.io/YOUR_PROJECT_ID/career-ai \
+--image gcr.io/career-ai-assistant-342313441373/career-ai \
 --platform managed \
 --region europe-west1 \
 --allow-unauthenticated
