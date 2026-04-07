@@ -56,7 +56,7 @@ career-ai-assistant/ │ ├── app.py ├── requirements.txt ├── D
 ## ⚙️ Installation (Local)
 
 ```bash
-- git clone https://github.com/dejan1283-ui/career-ai-assistant.git
+- git clone https://github.com/dejanjovic1283-ui/career-ai-assistant.git
 - cd career-ai-assistant
 
 - pip install -r requirements.txt

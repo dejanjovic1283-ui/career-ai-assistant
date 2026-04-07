@@ -91,6 +91,10 @@ def load_openai_client() -> OpenAI:
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
         raise ValueError("OPENAI_API_KEY is not set.")
+
+    if not api_key.startswith("sk-"):
+        raise ValueError("OPENAI_API_KEY does not look valid.")
+
     return OpenAI(api_key=api_key)
 
 
@@ -145,10 +149,15 @@ def embed_texts(texts: List[str]) -> np.ndarray:
     if not clean_texts:
         return np.array([], dtype=np.float32)
 
-    response = client.embeddings.create(
-        model=EMBEDDING_MODEL,
-        input=clean_texts,
-    )
+    try:
+        response = client.embeddings.create(
+            model=EMBEDDING_MODEL,
+            input=clean_texts,
+        )
+    except Exception as e:
+        error_message = f"{type(e).__name__}: {str(e)}"
+        st.error(f"Embedding error: {error_message}")
+        raise RuntimeError(error_message)
 
     vectors = [item.embedding for item in response.data]
     return np.array(vectors, dtype=np.float32)
