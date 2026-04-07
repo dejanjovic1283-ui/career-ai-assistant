@@ -2,7 +2,6 @@
 headless = true
 enableCORS = false
 enableXsrfProtection = false
-port = 8080
 
 [browser]
 gatherUsageStats = false
